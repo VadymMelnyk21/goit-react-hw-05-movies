@@ -6,6 +6,8 @@ import {
   fetchMovieReviews,
 } from '../services/API';
 
+import Header from './Header/Header';
+
 export const App = () => {
   fetchTrending().then(res => console.log(res));
   fetchSearch('super').then(res => console.log(res));
@@ -13,5 +15,9 @@ export const App = () => {
   fetchMovieCredits('746333').then(res => console.log(res));
   fetchMovieReviews('913205').then(res => console.log(res));
 
-  return <div>123</div>;
+  return (
+    <div>
+      <Header />
+    </div>
+  );
 };
