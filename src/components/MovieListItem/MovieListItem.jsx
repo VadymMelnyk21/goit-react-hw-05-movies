@@ -1,5 +1,6 @@
 import { Item, Image, Title } from './MovieListItem.styled';
 import { Link, useLocation } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 export default function MovieListItem({ id, tittle, poster }) {
   const location = useLocation();
@@ -22,3 +23,9 @@ export default function MovieListItem({ id, tittle, poster }) {
     </Item>
   );
 }
+
+MovieListItem.propTypes = {
+  id: PropTypes.number.isRequired,
+  tittle: PropTypes.string.isRequired,
+  poster: PropTypes.string.isRequired,
+};

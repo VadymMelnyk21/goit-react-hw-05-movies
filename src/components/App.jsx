@@ -1,14 +1,8 @@
 import { Routes, Route } from 'react-router-dom';
-import { Suspense } from 'react';
-// import {
-//   fetchSearch,
-//   fetchMovieDetails,
-//   fetchMovieCredits,
-//   fetchMovieReviews,
-// } from '../services/API';
+import { Suspense, lazy } from 'react';
 
 import Header from './Header/Header';
-import HomePage from 'pages/HomePage';
+const HomePage = lazy(() => import('../pages/HomePage'));
 
 export const App = () => {
   // fetchSearch('super').then(res => console.log(res));

@@ -1,5 +1,6 @@
 import { List } from './MovieList.styled';
 import MovieListItem from 'components/MovieListItem/MovieListItem';
+import PropTypes from 'prop-types';
 
 export default function MovieList({ movies }) {
   return (
@@ -17,3 +18,7 @@ export default function MovieList({ movies }) {
     </List>
   );
 }
+
+MovieList.propTypes = {
+  movies: PropTypes.array.isRequired,
+};
