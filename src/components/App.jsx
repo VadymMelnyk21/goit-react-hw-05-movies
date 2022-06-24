@@ -1,6 +1,8 @@
 import { Routes, Route } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
 
+import Loader from './Loader/Loader';
+import NotFound from 'pages/NotFound';
 import Header from './Header/Header';
 const HomePage = lazy(() => import('../pages/HomePage'));
 
@@ -13,10 +15,10 @@ export const App = () => {
   return (
     <>
       <Header />
-      <Suspense fallback={'Завантаження'}>
+      <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<HomePage />}></Route>
-          <Route path="*" element={'Не знайдено'}></Route>
+          <Route path="*" element={<NotFound />}></Route>
         </Routes>
       </Suspense>
     </>
