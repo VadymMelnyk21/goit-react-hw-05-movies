@@ -1,3 +1,5 @@
+import { Routes, Route } from 'react-router-dom';
+import { Suspense } from 'react';
 import {
   fetchTrending,
   fetchSearch,
@@ -16,8 +18,14 @@ export const App = () => {
   fetchMovieReviews('913205').then(res => console.log(res));
 
   return (
-    <div>
+    <>
       <Header />
-    </div>
+      <Suspense fallback={'Завантаження'}>
+        <Routes>
+          <Route></Route>
+          <Route path="*" element={'Не знайдено'}></Route>
+        </Routes>
+      </Suspense>
+    </>
   );
 };

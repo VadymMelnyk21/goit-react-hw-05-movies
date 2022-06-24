@@ -17,10 +17,13 @@ export const HeaderContainer = styled.header`
 `;
 
 export const Link = styled(NavLink)`
+  padding: 0 10px;
   font-size: 18px;
   font-weight: 700;
+  letter-spacing: 0.03em;
   color: #fff;
   position: relative;
+  z-index: 20;
 
   transition: color 150ms linear;
 
@@ -34,18 +37,24 @@ export const Link = styled(NavLink)`
   }
 
   &.active {
-    color: #42362b;
+    color: #fff;
 
     &::after {
       content: '';
-      display: block;
-      width: 100%;
-      height: 4px;
-      background-color: #42362b;
-
       position: absolute;
+      display: block;
+      z-index: -1;
+      width: 100%;
+      height: 55px;
+      background-color: #42362b;
+      border-radius: 2px;
+
       left: 0;
-      bottom: -18px;
+      bottom: -26px;
+
+      box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+        0px 4px 5px 0px rgba(0, 0, 0, 0.14),
+        0px 1px 10px 0px rgba(0, 0, 0, 0.12);
     }
   }
 `;
