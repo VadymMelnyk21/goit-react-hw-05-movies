@@ -13,7 +13,10 @@ export async function fetchTrending() {
 
 export async function fetchSearch(query) {
     const { data } = await axios.get(`/search/movie?api_key=${key}&query=${query}&language=uk&page=1`);
-    return data;
+
+    const moviesInfo = data.results.map(({ id, original_title, poster_path }) => ({ id, original_title, poster_path }))
+
+    return moviesInfo;
 }
 
 export async function fetchMovieDetails(movieId) {

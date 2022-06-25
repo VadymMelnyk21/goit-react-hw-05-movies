@@ -4,6 +4,7 @@ import { Suspense, lazy } from 'react';
 import Loader from './Loader/Loader';
 import NotFound from 'pages/NotFound';
 import Header from './Header/Header';
+import MoviesPage from 'pages/MoviesPage';
 const HomePage = lazy(() => import('../pages/HomePage'));
 
 export const App = () => {
@@ -18,6 +19,7 @@ export const App = () => {
         <Routes>
           <Route path="/" element={<Header />}>
             <Route index path="/" element={<HomePage />} />
+            <Route path="movies" element={<MoviesPage />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
