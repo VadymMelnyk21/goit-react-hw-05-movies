@@ -9,5 +9,5 @@ const Title = styled.p`
 `;
 
 export default function NotFound() {
-  return <Title>Сторінку не знайдено :(</Title>;
+  return <Title>Сторінку не знайдено ¯\_(ツ)_/¯</Title>;
 }
