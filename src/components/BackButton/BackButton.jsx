@@ -1,4 +1,5 @@
 import { Button } from './BackButton.styled';
+import PropTypes from 'prop-types';
 
 export default function BackButton({ location }) {
   return (
@@ -7,3 +8,7 @@ export default function BackButton({ location }) {
     </>
   );
 }
+
+BackButton.propTypes = {
+  location: PropTypes.object.isRequired,
+};

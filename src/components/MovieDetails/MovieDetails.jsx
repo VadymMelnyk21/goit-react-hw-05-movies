@@ -1,10 +1,13 @@
 import {
+  Container,
   DetailsContainer,
   ImageContainer,
   InfoContainer,
   Title,
   TitleSpan,
   Text,
+  MoreInfo,
+  More,
 } from './MovieDetails.styled';
 import PropTypes from 'prop-types';
 
@@ -21,44 +24,49 @@ export default function MovieDetails({ movieInfo }) {
 
   const genresArray = genres.map(genre => genre.name).join(', ');
   return (
-    <DetailsContainer>
-      <ImageContainer>
-        <img
-          src={
-            poster
-              ? `https://image.tmdb.org/t/p/w500${poster}`
-              : 'Постер відсутній'
-          }
-          alt={title}
-        />
-      </ImageContainer>
-      <InfoContainer>
-        <Title>
-          {originalTitle ? originalTitle : 'Тут мав бути заголовок'}
-        </Title>
-        <Text>
-          <TitleSpan>Нашою мовою: </TitleSpan> {title ? title : 'Не перевели'}
-        </Text>
-        <Text>
-          <TitleSpan>Рейтинг: </TitleSpan>{' '}
-          {voteAverage ? voteAverage : 'Відсутній'}
-        </Text>
-        <Text>
-          <TitleSpan>Дата релізу: </TitleSpan>{' '}
-          {releaseDate ? releaseDate : 'Давай не зарас'}
-        </Text>
-        <Text>
-          <TitleSpan>Жанри: </TitleSpan>{' '}
-          {genresArray ? genresArray : 'Неповторні'}
-        </Text>
-        <Text>
-          <TitleSpan>Опис: </TitleSpan>
-          {overview
-            ? overview
-            : ' Тут мав бути опис, але краще оди раз побачити ніж сто раз прочитати про фільм.'}
-        </Text>
-      </InfoContainer>
-    </DetailsContainer>
+    <Container>
+      <DetailsContainer>
+        <ImageContainer>
+          <img
+            src={
+              poster
+                ? `https://image.tmdb.org/t/p/w500${poster}`
+                : 'Постер відсутній'
+            }
+            alt={title}
+          />
+        </ImageContainer>
+        <InfoContainer>
+          <Title>
+            {originalTitle ? originalTitle : 'Тут мав бути заголовок'}
+          </Title>
+          <Text>
+            <TitleSpan>Нашою мовою: </TitleSpan> {title ? title : 'Не перевели'}
+          </Text>
+          <Text>
+            <TitleSpan>Рейтинг: </TitleSpan>{' '}
+            {voteAverage ? voteAverage : 'Відсутній'}
+          </Text>
+          <Text>
+            <TitleSpan>Дата релізу: </TitleSpan>{' '}
+            {releaseDate ? releaseDate : 'Давай не зарас'}
+          </Text>
+          <Text>
+            <TitleSpan>Жанри: </TitleSpan>{' '}
+            {genresArray ? genresArray : 'Неповторні'}
+          </Text>
+          <Text>
+            <TitleSpan>Опис: </TitleSpan>
+            {overview
+              ? overview
+              : ' Тут мав бути опис, але краще оди раз побачити ніж сто раз прочитати про фільм.'}
+          </Text>
+        </InfoContainer>
+      </DetailsContainer>
+      <MoreInfo>
+        <More>Дізнатись більше</More>
+      </MoreInfo>
+    </Container>
   );
 }
 

@@ -4,6 +4,15 @@ import MovieDetails from 'components/MovieDetails/MovieDetails';
 import { useState, useEffect } from 'react';
 import { Outlet, useParams, useLocation } from 'react-router-dom';
 import { fetchMovieDetails } from '../services/API';
+import styled from 'styled-components';
+
+const Section = styled.section`
+  padding: 40px 0;
+`;
+
+const Container = styled.div`
+  padding: 0 230px;
+`;
 
 export default function MovieDetailsPages() {
   const [movieDetails, setMovieDetails] = useState(null);
@@ -27,13 +36,13 @@ export default function MovieDetailsPages() {
   }, [movieId, setMovieDetails]);
 
   return (
-    <section>
-      <>
+    <Section>
+      <Container>
         <BackButton location={backLink} />
         {error && <ErrorMessage message={error} />}
         {movieDetails && <MovieDetails movieInfo={movieDetails} />}
         <Outlet />
-      </>
-    </section>
+      </Container>
+    </Section>
   );
 }
