@@ -1,23 +1,9 @@
-import { fetchTrending } from '../services/API';
-import { useState, useEffect } from 'react';
-import MovieList from 'components/MovieList/MovieList';
 import ErrorMessage from 'components/Error/Error';
+import MovieList from 'components/MovieList/MovieList';
+import { useFetchTrending } from '../hooks/useFetchTrending';
 
 export default function HomePage() {
-  const [movies, setMovies] = useState([]);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    fetchTrending()
-      .then(data => {
-        setMovies(data.results);
-
-        if (data.results.length === 0) {
-          setError('Контент відсутній');
-        }
-      })
-      .catch(error => setError(error.message));
-  }, []);
+  const { movies, error } = useFetchTrending();
 
   return (
     <section>
