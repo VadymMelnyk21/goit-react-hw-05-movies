@@ -20,20 +20,21 @@ export default function MoviesPage() {
   };
 
   useEffect(() => {
-    if (searchParams.get('query')) {
-      const currentQuery = searchParams.get('query');
-      fetchSearch(currentQuery)
-        .then(data => {
-          if (data.length === 0) {
-            setMovies([]);
-            setError('Контент відсутній спробуйте ввести інший запит');
-            return;
-          }
-          setMovies(data);
-          setError('');
-        })
-        .catch(error => setError(error.message));
-    }
+    const currentQuery = searchParams.get('query');
+
+    if (!currentQuery) return;
+
+    fetchSearch(currentQuery)
+      .then(data => {
+        if (data.length === 0) {
+          setMovies([]);
+          setError('Контент відсутній спробуйте ввести інший запит');
+          return;
+        }
+        setMovies(data);
+        setError('');
+      })
+      .catch(error => setError(error.message));
   }, [searchParams]);
 
   return (
