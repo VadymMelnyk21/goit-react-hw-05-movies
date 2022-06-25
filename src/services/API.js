@@ -21,7 +21,17 @@ export async function fetchSearch(query) {
 
 export async function fetchMovieDetails(movieId) {
     const { data } = await axios.get(`/movie/${movieId}?api_key=${key}&language=uk`);
-    return data;
+    // return data;
+    const dataMovies = {
+        originalTitle: data.original_title,
+        title: data.title,
+        genres: data.genres,
+        overview: data.overview,
+        poster: data.poster_path,
+        releaseDate: data.release_date.slice(0, 4),
+        voteAverage: data.vote_average,
+    };
+    return dataMovies;
 }
 
 export async function fetchMovieCredits(movieId) {

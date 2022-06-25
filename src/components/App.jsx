@@ -5,6 +5,7 @@ import Loader from './Loader/Loader';
 import NotFound from 'pages/NotFound';
 import Header from './Header/Header';
 import MoviesPage from 'pages/MoviesPage';
+import MovieDetailsPages from 'pages/MovieDetailsPage';
 const HomePage = lazy(() => import('../pages/HomePage'));
 
 export const App = () => {
@@ -20,6 +21,7 @@ export const App = () => {
           <Route path="/" element={<Header />}>
             <Route index path="/" element={<HomePage />} />
             <Route path="movies" element={<MoviesPage />} />
+            <Route path="movies/:movieId" element={<MovieDetailsPages />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
