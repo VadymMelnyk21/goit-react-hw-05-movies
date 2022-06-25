@@ -8,9 +8,9 @@ export const useFetchTrending = () => {
   useEffect(() => {
     fetchTrending()
       .then(data => {
-        setMovies(data.results);
+        setMovies(data);
 
-        if (data.results.length === 0) {
+        if (data.length === 0) {
           setError('Контент відсутній');
         }
       })
