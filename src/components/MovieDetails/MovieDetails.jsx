@@ -15,6 +15,8 @@ import {
 } from './MovieDetails.styled';
 import PropTypes from 'prop-types';
 import { Outlet, useLocation } from 'react-router-dom';
+import { Suspense } from 'react';
+import Loader from 'components/Loader/Loader';
 
 export default function MovieDetails({ movieInfo }) {
   const {
@@ -87,7 +89,9 @@ export default function MovieDetails({ movieInfo }) {
           </MoreItem>
         </MoreList>
       </MoreNavigate>
-      <Outlet />
+      <Suspense fallback={<Loader />}>
+        <Outlet />
+      </Suspense>
     </Container>
   );
 }

@@ -1,14 +1,14 @@
-import { Routes, Route } from 'react-router-dom';
-import { Suspense, lazy } from 'react';
+import { lazy, Suspense } from 'react';
+import { Route, Routes } from 'react-router-dom';
 
-import Loader from './Loader/Loader';
 import NotFound from 'pages/NotFound';
 import Header from './Header/Header';
-import MoviesPage from 'pages/MoviesPage';
-import MovieDetailsPages from 'pages/MovieDetailsPage';
-import Credits from './Сredits/Сredits';
-import Reviews from './Reviews/Reviews';
-const HomePage = lazy(() => import('../pages/HomePage'));
+import Loader from './Loader/Loader';
+const HomePage = lazy(() => import('pages/HomePage'));
+const Credits = lazy(() => import('./Сredits/Сredits'));
+const Reviews = lazy(() => import('./Reviews/Reviews'));
+const MoviesPage = lazy(() => import('pages/MoviesPage'));
+const MovieDetailsPages = lazy(() => import('pages/MovieDetailsPage'));
 
 export const App = () => {
   return (

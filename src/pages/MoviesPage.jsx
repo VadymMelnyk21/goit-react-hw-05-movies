@@ -4,11 +4,13 @@ import { useState, useEffect } from 'react';
 import { fetchSearch } from '../services/API';
 import ErrorMessage from 'components/Error/Error';
 import SearchForm from 'components/SearchForm/SearchForm';
+import Loader from 'components/Loader/Loader';
 
 export default function MoviesPage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState(null);
+  const [spiner, setSpiner] = useState(false);
 
   const formSubmit = value => {
     setSearchParams({ query: value });
@@ -23,7 +25,7 @@ export default function MoviesPage() {
     const currentQuery = searchParams.get('query');
 
     if (!currentQuery) return;
-
+    setSpiner(true);
     fetchSearch(currentQuery)
       .then(data => {
         if (data.length === 0) {
@@ -34,12 +36,14 @@ export default function MoviesPage() {
         setMovies(data);
         setError('');
       })
-      .catch(error => setError(error.message));
+      .catch(error => setError(error.message))
+      .finally(setSpiner(false));
   }, [searchParams]);
 
   return (
     <section>
       <SearchForm formSubmit={formSubmit} errorMessage={formErrorMessage} />
+      {spiner && <Loader />}
       {error && <ErrorMessage message={error} />}
       {movies && <MovieList movies={movies} />}
     </section>
