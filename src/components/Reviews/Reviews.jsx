@@ -1,22 +1,23 @@
-import Cast from 'components/Cast/Cast';
 import ErrorMessage from 'components/Error/Error';
+import ReviewsContent from 'components/ReviewsContent/ReviewsContent';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchMovieCredits } from 'services/API';
+import { fetchMovieReviews } from 'services/API';
 
-export default function Credits() {
+export default function Reviews() {
   const { movieId } = useParams();
-  const [credits, setCredits] = useState();
+  const [reviews, setReviews] = useState();
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetchMovieCredits(movieId)
+    fetchMovieReviews(movieId)
       .then(data => {
         if (data.length === 0) {
-          setError('Інформація про актора відсутня');
+          setError('Відгуки відсутні');
           return;
         }
-        setCredits(data);
+
+        setReviews(data);
       })
       .catch(error => setError(error.message));
   }, [movieId]);
@@ -24,7 +25,7 @@ export default function Credits() {
   return (
     <div>
       {error && <ErrorMessage message={error} />}
-      {credits && <Cast credits={credits} />}
+      {reviews && <ReviewsContent reviews={reviews} />}
     </div>
   );
 }

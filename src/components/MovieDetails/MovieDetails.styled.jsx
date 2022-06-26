@@ -73,9 +73,7 @@ export const More = styled.span`
   }
 `;
 
-export const MoreNavigate = styled.div`
-  /* border-bottom: 1px solid #42362b; */
-`;
+export const MoreNavigate = styled.div``;
 
 export const MoreList = styled.div`
   display: flex;
@@ -94,7 +92,7 @@ export const LinkTo = styled(NavLink)`
   font-weight: 700;
   color: #42362b;
   position: relative;
-  /* text-decoration: underline; */
+
   &.active {
     color: #5db09d;
 

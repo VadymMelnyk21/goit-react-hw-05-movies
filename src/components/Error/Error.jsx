@@ -1,8 +1,12 @@
 import PropTypes from 'prop-types';
-import { Text } from './Error.styled';
+import { Container, Text } from './Error.styled';
 
 export default function ErrorMessage({ message }) {
-  return <Text>{message}</Text>;
+  return (
+    <Container>
+      <Text>{message}</Text>
+    </Container>
+  );
 }
 
 Error.propTypes = {

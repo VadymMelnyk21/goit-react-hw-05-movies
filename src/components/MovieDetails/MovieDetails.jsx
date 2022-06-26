@@ -82,7 +82,7 @@ export default function MovieDetails({ movieInfo }) {
           <MoreItem>|</MoreItem>
           <MoreItem>
             <LinkTo to="reviews" state={{ from: location }}>
-              Огляд
+              Відгуки
             </LinkTo>
           </MoreItem>
         </MoreList>

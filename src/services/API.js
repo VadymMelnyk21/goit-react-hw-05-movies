@@ -43,9 +43,13 @@ export async function fetchMovieCredits(movieId) {
 }
 
 export async function fetchMovieReviews(movieId) {
-    const { data } = await axios.get(`/movie/${movieId}/reviews?api_key=${key}&language=uk&page=1`);
-    return data;
+    const { data } = await axios.get(`/movie/${movieId}/reviews?api_key=${key}&language=en-US&page=1`);
+
+    const reviewsInfo = data.results.map(({ id, author, content }) => ({ id, author, content }))
+
+    return reviewsInfo;
 }
+
 
 
 
