@@ -38,10 +38,10 @@ export default function MoviesPage() {
   }, [searchParams]);
 
   return (
-    <>
+    <section>
       <SearchForm formSubmit={formSubmit} errorMessage={formErrorMessage} />
       {error && <ErrorMessage message={error} />}
       {movies && <MovieList movies={movies} />}
-    </>
+    </section>
   );
 }

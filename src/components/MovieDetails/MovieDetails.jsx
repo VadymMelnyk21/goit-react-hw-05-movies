@@ -1,7 +1,7 @@
 import {
   Container,
   DetailsContainer,
-  ImageContainer,
+  Image,
   InfoContainer,
   Title,
   TitleSpan,
@@ -34,16 +34,14 @@ export default function MovieDetails({ movieInfo }) {
   return (
     <Container>
       <DetailsContainer>
-        <ImageContainer>
-          <img
-            src={
-              poster
-                ? `https://image.tmdb.org/t/p/w500${poster}`
-                : 'Постер відсутній'
-            }
-            alt={title}
-          />
-        </ImageContainer>
+        <Image
+          src={
+            poster
+              ? `https://image.tmdb.org/t/p/w500${poster}`
+              : 'https://image.tmdb.org/t/p/w500/4XlgNK3hLcw5yemwZYMkBvvyf1A.jpg'
+          }
+          alt={title}
+        />
         <InfoContainer>
           <Title>
             {originalTitle ? originalTitle : 'Тут мав бути заголовок'}

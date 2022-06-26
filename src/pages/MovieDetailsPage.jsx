@@ -1,10 +1,10 @@
 import BackButton from 'components/BackButton/BackButton';
 import ErrorMessage from 'components/Error/Error';
 import MovieDetails from 'components/MovieDetails/MovieDetails';
-import { useState, useEffect } from 'react';
-import { Outlet, useParams, useLocation } from 'react-router-dom';
-import { fetchMovieDetails } from '../services/API';
+import { useEffect, useState } from 'react';
+import { useLocation, useParams } from 'react-router-dom';
 import styled from 'styled-components';
+import { fetchMovieDetails } from '../services/API';
 
 const Section = styled.section`
   padding: 40px 0;
@@ -41,7 +41,6 @@ export default function MovieDetailsPages() {
         <BackButton location={backLink} />
         {error && <ErrorMessage message={error} />}
         {movieDetails && <MovieDetails movieInfo={movieDetails} />}
-        <Outlet />
       </Container>
     </Section>
   );

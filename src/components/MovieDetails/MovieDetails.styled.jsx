@@ -11,8 +11,10 @@ export const DetailsContainer = styled.div`
   width: 100%;
 `;
 
-export const ImageContainer = styled.div`
-  width: 70%;
+export const Image = styled.img`
+  display: block;
+  width: 300px;
+  object-fit: cover; ;
 `;
 
 export const InfoContainer = styled.div`

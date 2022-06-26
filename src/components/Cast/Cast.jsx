@@ -1,8 +1,9 @@
-import { List, Item, Image, Title } from './Cast.styled';
+import { Container, List, Item, Image, Title } from './Cast.styled';
+import PropTypes from 'prop-types';
 
 export default function Cast({ credits }) {
   return (
-    <>
+    <Container>
       <List>
         {credits.map(({ id, name, profilePath }) => {
           return (
@@ -12,7 +13,7 @@ export default function Cast({ credits }) {
                   src={
                     profilePath
                       ? `https://image.tmdb.org/t/p/w500${profilePath}`
-                      : 'Постер відсутній'
+                      : 'https://image.tmdb.org/t/p/w500/dBoOporkAEgZvRFz2h1Qi3ZozId.jpg'
                   }
                   alt={name}
                 />
@@ -22,6 +23,10 @@ export default function Cast({ credits }) {
           );
         })}
       </List>
-    </>
+    </Container>
   );
 }
+
+Cast.propTypes = {
+  credits: PropTypes.array.isRequired,
+};

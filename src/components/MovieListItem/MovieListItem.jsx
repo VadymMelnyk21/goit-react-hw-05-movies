@@ -13,7 +13,7 @@ export default function MovieListItem({ id, tittle, poster }) {
             src={
               poster
                 ? `https://image.tmdb.org/t/p/w500${poster}`
-                : 'Постер відсутній'
+                : 'https://image.tmdb.org/t/p/w500/4XlgNK3hLcw5yemwZYMkBvvyf1A.jpg'
             }
             alt="{title}"
           />
