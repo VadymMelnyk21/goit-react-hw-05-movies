@@ -77,13 +77,13 @@ export default function MovieDetails({ movieInfo }) {
       <MoreNavigate>
         <MoreList>
           <MoreItem>
-            <LinkTo to="credits" state={{ from: location }}>
+            <LinkTo to="credits" state={location.state}>
               Акторський склад
             </LinkTo>
           </MoreItem>
           <MoreItem>|</MoreItem>
           <MoreItem>
-            <LinkTo to="reviews" state={{ from: location }}>
+            <LinkTo to="reviews" state={location.state}>
               Відгуки
             </LinkTo>
           </MoreItem>
