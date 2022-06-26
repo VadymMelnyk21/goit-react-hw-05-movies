@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -67,5 +68,50 @@ export const More = styled.span`
 
     box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
       0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+  }
+`;
+
+export const MoreNavigate = styled.div`
+  /* border-bottom: 1px solid #42362b; */
+`;
+
+export const MoreList = styled.div`
+  display: flex;
+  padding: 20px 28px 18px;
+`;
+
+export const MoreItem = styled.div`
+  margin-right: 20px;
+  &:last-child {
+    margin-right: 0;
+  }
+`;
+
+export const LinkTo = styled(NavLink)`
+  font-size: 16px;
+  font-weight: 700;
+  color: #42362b;
+  position: relative;
+  /* text-decoration: underline; */
+  &.active {
+    color: #5db09d;
+
+    &::after {
+      content: '';
+      position: absolute;
+      display: block;
+      z-index: -1;
+      width: 100%;
+      height: 1.5px;
+      background-color: currentColor;
+
+      left: 0;
+      bottom: -2px;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    color: #5db09d;
   }
 `;

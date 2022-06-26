@@ -21,7 +21,7 @@ export async function fetchSearch(query) {
 
 export async function fetchMovieDetails(movieId) {
     const { data } = await axios.get(`/movie/${movieId}?api_key=${key}&language=uk`);
-    // return data;
+
     const dataMovies = {
         originalTitle: data.original_title,
         title: data.title,
@@ -36,7 +36,10 @@ export async function fetchMovieDetails(movieId) {
 
 export async function fetchMovieCredits(movieId) {
     const { data } = await axios.get(`/movie/${movieId}/credits?api_key=${key}&language=uk`);
-    return data;
+
+    const castInfo = data.cast.map(({ id, name, profile_path }) => ({ id, name, profilePath: profile_path }))
+
+    return castInfo;
 }
 
 export async function fetchMovieReviews(movieId) {

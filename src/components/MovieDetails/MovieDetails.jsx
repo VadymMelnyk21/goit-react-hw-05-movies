@@ -6,10 +6,15 @@ import {
   Title,
   TitleSpan,
   Text,
+  MoreNavigate,
   MoreInfo,
   More,
+  MoreList,
+  MoreItem,
+  LinkTo,
 } from './MovieDetails.styled';
 import PropTypes from 'prop-types';
+import { Outlet, useLocation } from 'react-router-dom';
 
 export default function MovieDetails({ movieInfo }) {
   const {
@@ -23,6 +28,9 @@ export default function MovieDetails({ movieInfo }) {
   } = movieInfo;
 
   const genresArray = genres.map(genre => genre.name).join(', ');
+
+  const location = useLocation();
+
   return (
     <Container>
       <DetailsContainer>
@@ -66,6 +74,22 @@ export default function MovieDetails({ movieInfo }) {
       <MoreInfo>
         <More>Дізнатись більше</More>
       </MoreInfo>
+      <MoreNavigate>
+        <MoreList>
+          <MoreItem>
+            <LinkTo to="credits" state={{ from: location }}>
+              Акторський склад
+            </LinkTo>
+          </MoreItem>
+          <MoreItem>|</MoreItem>
+          <MoreItem>
+            <LinkTo to="reviews" state={{ from: location }}>
+              Огляд
+            </LinkTo>
+          </MoreItem>
+        </MoreList>
+      </MoreNavigate>
+      <Outlet />
     </Container>
   );
 }
