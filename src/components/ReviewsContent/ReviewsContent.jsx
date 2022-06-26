@@ -6,6 +6,7 @@ import {
   TextBold,
   TextTitle,
 } from './ReviewsContent.styled';
+import PropTypes from 'prop-types';
 
 export default function ReviewsContent({ reviews }) {
   return (
@@ -26,3 +27,7 @@ export default function ReviewsContent({ reviews }) {
     </Container>
   );
 }
+
+ReviewsContent.propTypes = {
+  reviews: PropTypes.array.isRequired,
+};
