@@ -11,7 +11,7 @@ export default function useFetchMovieCredits() {
     fetchMovieCredits(movieId)
       .then(data => {
         if (data.length === 0) {
-          setError('Інформація про актора відсутня');
+          setError('Інформація про акторський склад відсутня');
           return;
         }
 

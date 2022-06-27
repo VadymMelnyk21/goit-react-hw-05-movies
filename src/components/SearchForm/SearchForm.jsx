@@ -17,6 +17,10 @@ export default function SearchForm({ formSubmit, errorMessage }) {
     setQuery('');
   };
 
+  const getQuery = e => {
+    setQuery(e.target.value.toLowerCase().trim());
+  };
+
   return (
     <FormContainer>
       <Form onSubmit={handleSubmit}>
@@ -24,7 +28,7 @@ export default function SearchForm({ formSubmit, errorMessage }) {
           type="text"
           name="query"
           value={query}
-          onChange={e => setQuery(e.target.value.toLowerCase().trim())}
+          onChange={getQuery}
           autoComplete="off"
           placeholder="Давайте знайдемо"
         />

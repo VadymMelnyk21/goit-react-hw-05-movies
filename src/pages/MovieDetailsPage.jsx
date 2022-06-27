@@ -1,8 +1,7 @@
 import BackButton from 'components/BackButton/BackButton';
-import ErrorMessage from 'components/Error/Error';
 import MovieDetails from 'components/MovieDetails/MovieDetails';
 import useFetchMovieDetails from 'hooks/useFetchMovieDetails';
-import { useLocation } from 'react-router-dom';
+import { Navigate, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Section = styled.section`
@@ -23,7 +22,7 @@ export default function MovieDetailsPages() {
     <Section>
       <Container>
         <BackButton location={backLink} />
-        {error && <ErrorMessage message={error} />}
+        {error && <Navigate to="/" replace />}
         {movieDetails && <MovieDetails movieInfo={movieDetails} />}
       </Container>
     </Section>

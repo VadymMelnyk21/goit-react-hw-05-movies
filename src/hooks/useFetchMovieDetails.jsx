@@ -13,12 +13,16 @@ export default function useFetchMovieDetails() {
         if (data.length === 0) {
           setMovieDetails([]);
           setError('Інфррмація про фільм відсутня');
+          console.log('Інфррмація про фільм відсутня');
           return;
         }
 
         setMovieDetails(data);
       })
-      .catch(error => setError(error.message));
+      .catch(error => {
+        setError(error.message);
+        console.log(error.message);
+      });
   }, [movieId, setMovieDetails]);
   return { movieDetails, error };
 }
